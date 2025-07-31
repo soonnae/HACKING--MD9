@@ -71,7 +71,8 @@ const textmaker = async (url, texts, radioOption = '') => {
   const postHtml = await postResponse.text();
   const postResult = cheerio.load(postHtml);
 
-  const resultValue = url.includes("en.ephoto360.com")
+  const urlObj = new URL(url);
+  const resultValue = urlObj.hostname === "en.ephoto360.com"
     ? postResult("input[name=\"form_value_input\"]").attr("value")
     : postResult("#form_value").first().text();
 

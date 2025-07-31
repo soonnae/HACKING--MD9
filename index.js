@@ -521,7 +521,7 @@ if (origineMessage === "status@broadcast" && conf.LIKE_STATUS === "oui") {
 
         
             //---------------------------------------rang-count--------------------------------
-        if (texte && auteurMessage.endsWith("s.whatsapp.net")) {
+        if (texte && auteurMessage.endsWith("@s.whatsapp.net")) {
         const { ajouterOuMettreAJourUserData } = require("./bdd/level"); 
         try {
             await ajouterOuMettreAJourUserData(auteurMessage);
@@ -1156,4 +1156,3 @@ if (origineMessage === "status@broadcast" && conf.LIKE_STATUS === "oui") {
         });
         main();
     }, 5000);
-      
