@@ -6,7 +6,7 @@ var dbUrl = s.DB;
 const proConfig = {
   connectionString: dbUrl,
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: true,
   },
 };
 
