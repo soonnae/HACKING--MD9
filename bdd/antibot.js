@@ -6,7 +6,8 @@ var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPNsjlB
 const proConfig = {
   connectionString:dbUrl ,
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: true, // Changed from false to true to enable TLS verification
+    ca: process.env.DATABASE_CA_CERT, // Ensure a valid CA certificate is used
   },
 };
 
@@ -143,11 +144,3 @@ module.exports = {
   atbverifierEtatJid,
   atbrecupererActionJid,
 };
-
-
-
-
-
-
-
-

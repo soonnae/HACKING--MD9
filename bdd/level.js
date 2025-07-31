@@ -12,7 +12,7 @@ const dbUrl = s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPN
 const proConfig = {
   connectionString: dbUrl,
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: true,
   },
 };
 
