@@ -11,7 +11,7 @@ var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgresql://thomas_k3lw_user:ePmbhxsGM
 const proConfig = {
   connectionString: dbUrl,
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: true,
   },
 };
 
