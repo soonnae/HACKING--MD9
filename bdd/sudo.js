@@ -11,7 +11,7 @@ var dbUrl= process.env.DATABASE_URL
 const proConfig = {
   connectionString: dbUrl,
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: true,
   },
 };
 
@@ -140,4 +140,3 @@ async function issudo(jid) {
     getAllSudoNumbers,
     isSudoTableNotEmpty
   };
-  

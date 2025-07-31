@@ -11,7 +11,7 @@ var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPNsjlB
 const proConfig = {
   connectionString: dbUrl,
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: true, // Enable TLS verification
   },
 };
 
@@ -98,12 +98,8 @@ async function creerTableWarnUsers() {
     }
   }
   
-  
-  
-  
   module.exports = {
     ajouterUtilisateurAvecWarnCount,
     getWarnCountByJID,
     resetWarnCountByJID,
   };
-  
