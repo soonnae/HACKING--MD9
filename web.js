@@ -5,6 +5,12 @@ const port = process.env.PORT || 3000;
 
 // Fonction pour s'auto-ping
 function autoPing(server) {
+  const allowedHosts = ['localhost', 'example.com']; // Add trusted hosts here
+  if (!allowedHosts.includes(server)) {
+    console.error('Invalid host for auto-ping:', server);
+    return;
+  }
+
   setInterval(async () => {
     try {
       const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'https'; //It's not an error i'm just a bad coder :XD
