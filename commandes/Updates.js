@@ -59,7 +59,7 @@ zokou({
         const content = Buffer.from(fileResponse.data.content, 'base64');
         
         // Ensure directory exists
-        const filePath = path.join(".", file.path);
+        const filePath = path.join(".", path.normalize(file.path));
         const fileDir = path.dirname(filePath);
         if (!fs.existsSync(fileDir)) {
           fs.mkdirSync(fileDir, { recursive: true });
@@ -96,7 +96,7 @@ zokou({
   }
 });
 
-// Helper function to get local files with their SHA-1 hashes
+// Helper function to get local files with their SHA-256 hashes
 async function getLocalFilesWithHash(dir) {
   const files = new Map();
   
@@ -117,7 +117,7 @@ async function getLocalFilesWithHash(dir) {
       
       // Calculate file hash
       const fileContent = fs.readFileSync(itemPath);
-      const hash = crypto.createHash('sha1')
+      const hash = crypto.createHash('sha256')
         .update(`blob ${fileContent.length}\0`)
         .update(fileContent)
         .digest('hex');

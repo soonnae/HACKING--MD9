@@ -1,6 +1,6 @@
 const { zokou } = require("../framework/zokou");
 const BaseUrl = 'https://api.giftedtech.web.id';
-const giftedapikey = 'gifted-md';
+const giftedapikey = process.env.GIFTED_API_KEY; // Use environment variable
 
 // Commande pour télécharger des vidéos Instagram
 zokou({
